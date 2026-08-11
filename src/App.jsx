@@ -36,11 +36,14 @@ function App() {
   const words = text.trim() === "" ? 0 : text.trim().split(/\s+/).length
 
   const sentences = text.trim() === ""
-  ? 0
-  : text
+    ? 0
+    : text
       .split(/[.!?]+/)
       .filter(item => item.trim() !== "")
       .length;
+
+  const readingTime = words / 200
+
 
 
   return (
@@ -94,6 +97,12 @@ function App() {
         <p>Cantidad de caracteres: {characters}</p>
         <p>Cantidad de palabras: {words}</p>
         <p>Cantidad de oraciones: {sentences}</p>
+        <p>
+          Tiempo de lectura:{" "}
+          {readingTime < 0.8
+            ? "< 1 min"
+            : `~ ${Math.round(readingTime)} min`}
+        </p>
       </main>
     </>
   );
