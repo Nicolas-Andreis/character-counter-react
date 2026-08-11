@@ -1,5 +1,6 @@
 import logo from '../../assets/logo/logo.png'
 import light from '../../assets/icons/light.svg'
+import './Header.css'
 
 const Header = () => {
   return (
