@@ -1,0 +1,17 @@
+main {
+  min-height: 100vh;
+  color: #12131a;
+  background-color: #ffffff;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+main.dark {
+  color: #f2f2f7;
+  background-color: #12131a;
+}
+
+main.dark textarea,
+main.dark input {
+  color: #f2f2f7;
+  background-color: #21222c;
+}

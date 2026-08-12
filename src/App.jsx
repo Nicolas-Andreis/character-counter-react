@@ -1,15 +1,19 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./App.css";
 import { Header } from "./components/Header/Header";
 import { WriteArea } from "./components/WriteArea/WriteArea";
 import { Controls } from "./components/Controls/Controls";
 import { LetterDensity } from "./components/LetterDensity/LetterDensity";
 import { Stats } from "./components/Stats/Stats";
+import { ThemeContext } from "./context/ThemeContext";
+
 
 
 function App() {
   // Guarda el texto que escribe el usuario
   const [text, setText] = useState("Hola :)");
+
+  const { dark } = useContext(ThemeContext);
 
   // Guarda si el usuario quiere contar los caracteres sin espacios
   const [excludeSpaces, setExcludeSpaces] = useState(false);
@@ -113,7 +117,7 @@ function App() {
   );
   return (
     <>
-      <main>
+      <main className={dark ? "dark" : ""}>
         <Header />
 
         <h2>

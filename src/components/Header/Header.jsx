@@ -1,8 +1,13 @@
 import logo from '../../assets/logo/logo.png'
 import light from '../../assets/icons/light.svg'
 import './Header.css'
+import { useContext } from 'react'
+import { ThemeContext } from '../../context/ThemeContext'
 
 const Header = () => {
+
+  const { handleDarkTheme } = useContext(ThemeContext);
+
   return (
     <div>
       <header>
@@ -10,9 +15,9 @@ const Header = () => {
             <img src={logo} alt="logo" />
             <h1>Character Counter</h1>
           </div>
-          <button>
-            <img src={light} alt="luz" />
-          </button>
+          <button onClick={handleDarkTheme}>
+        <img src={light} alt="Cambiar tema" />
+      </button>
         </header>
     </div>
   )
