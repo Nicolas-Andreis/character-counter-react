@@ -11,16 +11,16 @@ const Header = () => {
   return (
     <div>
       <header>
-          <div>
-            <img src={logo} alt="logo" />
-            <h1>Character Counter</h1>
-          </div>
-          <button onClick={handleDarkTheme}>
-        <img src={light} alt="Cambiar tema" />
-      </button>
-        </header>
+        <div className='container-logo'>
+          <img src={logo} alt="logo" className='logo' />
+          <h1>Character Counter</h1>
+        </div>
+        <button onClick={handleDarkTheme} className='btn-dark'>
+          <img src={light} alt="Cambiar tema" />
+        </button>
+      </header>
     </div>
   )
 }
 
-export  {Header}
+export { Header }

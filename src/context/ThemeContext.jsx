@@ -4,9 +4,13 @@ const ThemeContext = createContext();
 
 const ThemeProvider = ({ children }) => {
   // Recupera el tema guardado en localStorage
-  const [dark, setDark] = useState(
-    localStorage.getItem("theme") === "dark"
-  );
+  const [dark, setDark] = useState(() => {
+    const theme = localStorage.getItem("theme");
+
+    if (theme === null) return true; // Primera vez → Dark
+
+    return theme === "dark";
+  });
 
 
   // Cambia entre modo oscuro y claro
@@ -15,11 +19,10 @@ const ThemeProvider = ({ children }) => {
 
     setDark(newDark);
 
-    if (newDark) {
-      localStorage.setItem("theme", "dark");
-    } else {
-      localStorage.removeItem("theme");
-    }
+    localStorage.setItem(
+      "theme",
+      newDark ? "dark" : "light"
+    );
   };
 
   return (

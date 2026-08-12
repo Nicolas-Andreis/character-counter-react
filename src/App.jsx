@@ -117,7 +117,7 @@ function App() {
   );
   return (
     <>
-      <main className={dark ? "dark" : ""}>
+      <main className={dark ? "dark" : "light"}>
         <Header />
 
         <h2>

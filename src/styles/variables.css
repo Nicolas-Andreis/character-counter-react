@@ -1,0 +1,60 @@
+:root {
+
+    /* Tipografía */
+
+    --font-primary: "Space Grotesk", sans-serif;
+
+    /* Fondos */
+
+    --bg-primary: #12131A;
+    --bg-surface: #1C1F2A;
+
+    /* Texto */
+
+    --text-primary: #F2F2F7;
+    --text-secondary: #B4B7C9;
+
+    /* Colores principales */
+
+    --primary: #D19BFF;
+    --secondary: #FF9F00;
+    --danger: #FF6B6B;
+
+    /* Bordes */
+
+    --border-color: #2A2D3A;
+
+    /* Radios */
+
+    --radius-sm: .5rem;
+    --radius-md: .75rem;
+    --radius-lg: 1rem;
+
+    /* Espaciados */
+
+    --spacing-sm: .5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+
+    /* Sombras */
+
+    --shadow: 0 4px 16px rgba(0, 0, 0, .15);
+
+    /* Animaciones */
+
+    --transition: .25s ease;
+}
+
+/* Tema claro */
+
+.light {
+
+    --bg-primary: #F8F8FA;
+    --bg-surface: #FFFFFF;
+
+    --text-primary: #12131A;
+    --text-secondary: #5C6370;
+
+    --border-color: #D9D9D9;
+
+}
