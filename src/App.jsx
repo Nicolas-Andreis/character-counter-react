@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { Header } from "./components/Header/Header";
+import { WriteArea } from "./components/WriteArea/WriteArea";
 
 function App() {
   // Guarda el texto que escribe el usuario
@@ -78,26 +79,25 @@ function App() {
 
   const totalLetters = cleanText.length;
 
-  // Guarda si el usuario quiere ver todas las letras
-  // o solamente las que tienen un porcentaje importante
-  const [showAllLetters, setShowAllLetters] = useState(false);
-
   // Convierte el objeto de letras en un array
-  // y agrega el porcentaje de cada letra
+  // y calcula el porcentaje de cada una
   const lettersData = Object.entries(dictionaryLetters).map(
     ([letter, amount]) => ({
       letter,
       amount,
-      percentage: (amount / totalLetters) * 100
+      percentage: totalLetters === 0
+        ? 0
+        : (amount / totalLetters) * 100
     })
   );
 
-  // Si showAllLetters es true muestra todas
-  // si no, muestra solo las que tienen 5% o más
-  const visibleLetters = showAllLetters
-    ? lettersData
-    : lettersData.filter((item) => item.percentage >= 5);
+  const importantLetters = lettersData.filter(
+    (item) => item.percentage >= 5
+  );
 
+  const otherLetters = lettersData.filter(
+    (item) => item.percentage < 5
+  );
   return (
     <>
       <main>
@@ -108,11 +108,11 @@ function App() {
           in real-time.
         </h2>
 
-        <textarea
-          placeholder="Escribe tu texto..."
-          value={text}
-          onChange={handleChangeTextArea}
-          maxLength={limitCharacter ? limitValue : undefined}
+        <WriteArea 
+        handleChangeTextArea = {handleChangeTextArea}
+        text = {text}
+        limitCharacter = {limitCharacter}
+        limitValue = {limitValue}
         />
 
         <div>
@@ -155,36 +155,52 @@ function App() {
             ? "< 1 min"
             : `~ ${Math.round(readingTime)} min`}
         </p>
-        <section>
-          <h2>Cantidad de letras</h2>
-          <article>
-            {visibleLetters.map(({ letter, amount, percentage }) => (
-              <div key={letter}>
-                <span>{letter.toUpperCase()}</span>
 
-                <meter
-                  min={0}
-                  max={100}
-                  value={percentage}
-                />
+        {/* renderizado condicional para que si no hay texto no se renderice  */}
+        {text.length > 0 && (
+          <section>
+            <h2>Cantidad de letras</h2>
+            <article>
+              {importantLetters.map(({ letter, amount, percentage }) => (
+                <div key={letter}>
+                  <span>{letter.toUpperCase()}</span>
 
-                <span>
-                  {amount} ({percentage.toFixed(1)}%)
-                </span>
-              </div>
-            ))}
-          </article>
-          {/* El botón aparece solo si existen letras con menos del 5% */}
-          {lettersData.some((item) => item.percentage < 5) && (
-            <button
-              type="button"
-              onClick={() => setShowAllLetters(!showAllLetters)}
-            >
-              {showAllLetters ? "See less" : "See more"}
-            </button>
-          )}
-        </section>
+                  <meter
+                    min={0}
+                    max={100}
+                    value={percentage}
+                  />
 
+                  <span>
+                    {amount} ({percentage.toFixed(1)}%)
+                  </span>
+                </div>
+              ))}
+
+              {otherLetters.length > 0 && (
+                <details>
+                  <summary>See more</summary>
+
+                  {otherLetters.map(({ letter, amount, percentage }) => (
+                    <div key={letter}>
+                      <span>{letter.toUpperCase()}</span>
+
+                      <meter
+                        min={0}
+                        max={100}
+                        value={percentage}
+                      />
+
+                      <span>
+                        {amount} ({percentage.toFixed(1)}%)
+                      </span>
+                    </div>
+                  ))}
+                </details>
+              )}
+            </article>
+          </section>
+        )}
       </main>
     </>
   );
