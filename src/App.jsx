@@ -2,6 +2,10 @@ import { useState } from "react";
 import "./App.css";
 import { Header } from "./components/Header/Header";
 import { WriteArea } from "./components/WriteArea/WriteArea";
+import { Controls } from "./components/Controls/Controls";
+import { LetterDensity } from "./components/LetterDensity/LetterDensity";
+import { Stats } from "./components/Stats/Stats";
+
 
 function App() {
   // Guarda el texto que escribe el usuario
@@ -28,6 +32,15 @@ function App() {
   // Actualiza el valor del límite de caracteres
   const handleLimitChange = (e) => {
     setLimitValue(Number(e.target.value));
+  };
+
+
+  const handleExcludeSpaces = () => {
+    setExcludeSpaces(!excludeSpaces);
+  };
+
+  const handleLimitCharacter = () => {
+    setLimitCharacter(!limitCharacter);
   };
 
   // Aplica el límite y recorta el texto si supera la cantidad permitida
@@ -108,99 +121,34 @@ function App() {
           in real-time.
         </h2>
 
-        <WriteArea 
-        handleChangeTextArea = {handleChangeTextArea}
-        text = {text}
-        limitCharacter = {limitCharacter}
-        limitValue = {limitValue}
+        <WriteArea
+          handleChangeTextArea={handleChangeTextArea}
+          text={text}
+          limitCharacter={limitCharacter}
+          limitValue={limitValue}
         />
 
-        <div>
-          <label>
-            <input
-              type="checkbox"
-              checked={excludeSpaces}
-              onChange={() => setExcludeSpaces(!excludeSpaces)}
-            />
-            Exclude spaces
-          </label>
-
-          <label>
-            <input
-              type="checkbox"
-              checked={limitCharacter}
-              onChange={() => setLimitCharacter(!limitCharacter)}
-            />
-            Set Character Limit
-          </label>
-
-          {limitCharacter && (
-            <input
-              type="number"
-              min={1}
-              value={limitValue}
-              onChange={handleLimitChange}
-              onBlur={applyLimit}
-              onKeyDown={handleLimitKeyDown}
-            />
-          )}
-        </div>
-
-        <p>Cantidad de caracteres: {characters}</p>
-        <p>Cantidad de palabras: {words}</p>
-        <p>Cantidad de oraciones: {sentences}</p>
-        <p>
-          Tiempo de lectura:{" "}
-          {readingTime < 0.8
-            ? "< 1 min"
-            : `~ ${Math.round(readingTime)} min`}
-        </p>
-
+        <Controls
+          excludeSpaces={excludeSpaces}
+          limitCharacter={limitCharacter}
+          limitValue={limitValue}
+          handleLimitChange={handleLimitChange}
+          applyLimit={applyLimit}
+          handleLimitKeyDown={handleLimitKeyDown}
+          handleExcludeSpaces = {handleExcludeSpaces}
+          handleLimitCharacter = {handleLimitCharacter}
+        />
+        <Stats 
+        characters = {characters}
+        words = {words}
+        sentences = {sentences}
+        readingTime = {readingTime}
+        />
         {/* renderizado condicional para que si no hay texto no se renderice  */}
-        {text.length > 0 && (
-          <section>
-            <h2>Cantidad de letras</h2>
-            <article>
-              {importantLetters.map(({ letter, amount, percentage }) => (
-                <div key={letter}>
-                  <span>{letter.toUpperCase()}</span>
-
-                  <meter
-                    min={0}
-                    max={100}
-                    value={percentage}
-                  />
-
-                  <span>
-                    {amount} ({percentage.toFixed(1)}%)
-                  </span>
-                </div>
-              ))}
-
-              {otherLetters.length > 0 && (
-                <details>
-                  <summary>See more</summary>
-
-                  {otherLetters.map(({ letter, amount, percentage }) => (
-                    <div key={letter}>
-                      <span>{letter.toUpperCase()}</span>
-
-                      <meter
-                        min={0}
-                        max={100}
-                        value={percentage}
-                      />
-
-                      <span>
-                        {amount} ({percentage.toFixed(1)}%)
-                      </span>
-                    </div>
-                  ))}
-                </details>
-              )}
-            </article>
-          </section>
-        )}
+        {text.length > 0 && (<LetterDensity 
+        importantLetters={importantLetters}
+        otherLetters={otherLetters}
+        />)}
       </main>
     </>
   );
