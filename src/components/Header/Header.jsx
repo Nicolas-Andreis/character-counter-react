@@ -9,7 +9,7 @@ const Header = () => {
   const { handleDarkTheme } = useContext(ThemeContext);
 
   return (
-    <div>
+    <>
       <header>
         <div className='container-logo'>
           <img src={logo} alt="logo" className='logo' />
@@ -19,7 +19,7 @@ const Header = () => {
           <img src={light} alt="Cambiar tema" />
         </button>
       </header>
-    </div>
+    </>
   )
 }
 

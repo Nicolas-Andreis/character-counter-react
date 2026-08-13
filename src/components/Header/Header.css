@@ -1,4 +1,4 @@
-header{
+header {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -7,7 +7,7 @@ header{
   font-size: 1rem;
 }
 
-.container-logo{
+.container-logo {
   display: flex;
   align-items: center;
 }
@@ -38,10 +38,23 @@ header{
 
 /* TABLET */
 @media (min-width: 768px) {
-    
+  header {
+    width: 90%;
+    font-size: 2rem;
+    justify-content: space-between;
+  }
+
+
+  .logo {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .btn-dark {
+    width: 6rem;
+    height: 6rem;
+  }
 }
 
 /* DESKTOP */
-@media (min-width: 1024px) {
-    
-}
+@media (min-width: 1024px) {}

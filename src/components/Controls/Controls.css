@@ -1,17 +1,17 @@
-.container-all-controls{
+.container-all-controls {
   display: flex;
   justify-content: space-between;
   align-items: end;
   margin: var(--spacing-md);
 }
 
-.container-controls{
+.container-controls {
   display: flex;
   align-items: center;
   width: 60%;
 }
 
-label{
+label {
   display: flex;
   flex-direction: column;
   gap: .5rem;
@@ -19,3 +19,33 @@ label{
   width: 40%;
 }
 
+/* tablet */
+@media (min-width: 768px) {
+  .container-all-controls {
+    font-size: 1.7rem;
+    width: 90%;
+    margin: var(--spacing-lg) 0;
+  }
+
+  .container-controls {
+    display: flex;
+    align-self: self-start;
+    width: 100%;
+  }
+
+  label {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  input[type="checkbox"] {
+    transform: scale(1.5);
+    cursor: pointer;
+    margin-right: .5rem;
+  }
+}
+
+/* desktop */
+@media (min-width: 1024px) {
+  
+}

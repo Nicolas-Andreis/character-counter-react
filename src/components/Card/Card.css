@@ -41,16 +41,17 @@
 @media (min-width: 768px) {
 
   .card {
-    min-height: 8.5rem;
-    padding: 1.25rem;
+    padding: 2rem;
+    border-radius: 2cqb;
+    width: 33%;
   }
 
   .card_number {
-    font-size: 2.75rem;
+    font-size: 4rem;
   }
 
   .card_label {
-    font-size: 0.9375rem;
+    font-size: 2rem;
   }
 }
 
@@ -58,16 +59,4 @@
 /* DESKTOP */
 @media (min-width: 1024px) {
 
-  .card {
-    min-height: 9rem;
-    padding: 1.25rem;
-  }
-
-  .card_number {
-    font-size: 3rem;
-  }
-
-  .card_label {
-    font-size: 1rem;
-  }
 }

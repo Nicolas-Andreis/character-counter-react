@@ -58,30 +58,30 @@
 /* Fondo de la barra */
 
 .letter-density__bar {
-    width: 100%;
-    height: 0.75rem;
+  width: 100%;
+  height: 0.75rem;
 
-    background-color: var(--bg-surface);
+  background-color: var(--bg-surface);
 
-    border: 1px solid var(--border-color);
-    border-radius: 999px;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
 
-    box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
 
-    overflow: hidden;
+  overflow: hidden;
 }
 
 
 /* Parte violeta de la barra */
 
 .letter-density__progress {
-    height: 100%;
+  height: 100%;
 
-    background-color: var(--primary);
+  background-color: var(--primary);
 
-    border-radius: 999px;
+  border-radius: 999px;
 
-    transition: width var(--transition);
+  transition: width var(--transition);
 }
 
 
@@ -110,39 +110,38 @@
 /* Quitamos la flecha original */
 
 .letter-density__summary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
 
-    color: var(--text-primary);
-    font-size: 1.1rem;
+  color: var(--text-primary);
+  font-size: 1.1rem;
 
-    cursor: pointer;
-    list-style: none;
+  cursor: pointer;
+  list-style: none;
 }
 
 
 .letter-density__summary::after {
-    content: "⌄";
+  content: "⌄";
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    width: 1rem;
-    height: 1rem;
+  width: 1rem;
+  height: 1rem;
 
-    font-size: 1rem;
-    line-height: 1;
+  font-size: 1rem;
+  line-height: 1;
 
-    transform: translateY(-2px);
+  transform: translateY(-2px);
 
-    transition: transform var(--transition);
+  transition: transform var(--transition);
 }
 
-.letter-density__details[open]
-.letter-density__summary::after {
-    transform: translateY(2px) rotate(180deg);
+.letter-density__details[open] .letter-density__summary::after {
+  transform: translateY(2px) rotate(180deg);
 }
 
 
@@ -163,25 +162,53 @@
 /* ============================= */
 
 @media (min-width: 768px) {
+  .letter-density {
+    width: 90%;
+    margin: 0;
+  }
 
   .letter-density__title {
-    font-size: 1.375rem;
+    font-size: 2.5rem;
+    margin-top: 1.7rem;
+  }
+
+  .letter-density__letter {
+    font-size: 1.7rem;
   }
 
   .letter-density__item {
-    grid-template-columns: 1.5rem 1fr auto;
-
+    grid-template-columns: 0.2fr 5fr 1fr;
     gap: 1rem;
+    text-align: center;
   }
 
   .letter-density__value {
     min-width: 6rem;
 
-    font-size: 0.8125rem;
+    font-size: 1.7rem;
   }
 
   .letter-density__summary {
-    font-size: 0.9375rem;
+    font-size: 1.7rem;
+  }
+
+  .letter-density__bar {
+    width: 100%;
+    height: 1.4rem;
+  }
+
+  .letter-density__details {
+    margin: 1rem 0;
+  }
+
+  .letter-density__summary {
+    gap: 0.9rem;
+    font-size: 1.7rem;
+  }
+
+  .letter-density__summary::after {
+    align-items: end;
+    font-size: 3rem;
   }
 
 }

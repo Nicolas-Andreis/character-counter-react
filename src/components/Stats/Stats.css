@@ -1,4 +1,4 @@
-.container-cards{
+.container-cards {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -7,3 +7,15 @@
   gap: var(--spacing-md);
   margin: .5rem;
 }
+
+/* TABLET */
+@media (min-width: 768px) {
+  .container-cards {
+    flex-direction: row;
+    gap: var(--spacing-md);
+    width: 90%;
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {}

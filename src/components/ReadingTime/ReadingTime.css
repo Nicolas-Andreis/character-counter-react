@@ -1,4 +1,15 @@
-.container-readingtime{
+.container-readingtime {
   width: 35%;
   text-align: center;
 }
+
+/* TABLET */
+@media (min-width: 768px) {
+  .container-readingtime {
+    width: 100%;
+    text-align: end;
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {}
