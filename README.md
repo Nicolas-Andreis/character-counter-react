@@ -1,5 +1,7 @@
 # Character Counter — Aplicación de análisis de texto
 
+![Presentación de Character Counter y sus funcionalidades](./src/assets/mockups/marketing.png)
+
 ## Objetivo del proyecto
 
 Desarrollar una aplicación funcional de conteo y análisis de texto con **React**. La interfaz procesa en tiempo real el contenido ingresado por el usuario y muestra estadísticas de caracteres, palabras, oraciones, tiempo estimado de lectura y densidad de letras.
@@ -119,6 +121,7 @@ character-counter/
 │   │   └── mockups/
 │   │       ├── desktop1.png
 │   │       ├── desktop2.png
+│   │       ├── marketing.png
 │   │       ├── smartphone.png
 │   │       └── tablet.png
 │   ├── components/
