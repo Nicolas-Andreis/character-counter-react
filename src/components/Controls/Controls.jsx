@@ -38,6 +38,7 @@ const Controls = ({
             <input
               className="limit-input"
               type="number"
+              aria-label="Character limit"
               min={1}
               value={limitValue}
               onChange={handleLimitChange}

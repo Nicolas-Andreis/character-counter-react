@@ -6,17 +6,22 @@ import { ThemeContext } from '../../context/ThemeContext'
 
 const Header = () => {
 
-  const { handleDarkTheme } = useContext(ThemeContext);
+  const { dark, handleDarkTheme } = useContext(ThemeContext);
 
   return (
     <>
       <header>
         <div className='container-logo'>
-          <img src={logo} alt="logo" className='logo' />
+          <img src={logo} alt="" className='logo' />
           <h1>Character Counter</h1>
         </div>
-        <button onClick={handleDarkTheme} className='btn-dark'>
-          <img src={light} alt="Cambiar tema" />
+        <button
+          type="button"
+          onClick={handleDarkTheme}
+          className='btn-dark'
+          aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
+        >
+          <img src={light} alt="" />
         </button>
       </header>
     </>

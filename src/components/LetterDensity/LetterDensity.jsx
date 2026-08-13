@@ -21,7 +21,7 @@ const LetterDensity = ({ importantLetters, otherLetters }) => {
         Letter Density
       </h2>
 
-      <article className="letter-density__list">
+      <div className="letter-density__list">
 
         {/* Letras principales */}
         {importantLetters.map(({ letter, amount, percentage }) => (
@@ -33,7 +33,14 @@ const LetterDensity = ({ importantLetters, otherLetters }) => {
               {letter.toUpperCase()}
             </span>
 
-            <div className="letter-density__bar">
+            <div
+              className="letter-density__bar"
+              role="progressbar"
+              aria-label={`${letter.toUpperCase()} letter density`}
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow={Number(percentage.toFixed(1))}
+            >
               <div
                 className="letter-density__progress"
                 style={{ width: `${percentage}%` }}
@@ -69,7 +76,14 @@ const LetterDensity = ({ importantLetters, otherLetters }) => {
                     {letter.toUpperCase()}
                   </span>
 
-                  <div className="letter-density__bar">
+                  <div
+                    className="letter-density__bar"
+                    role="progressbar"
+                    aria-label={`${letter.toUpperCase()} letter density`}
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow={Number(percentage.toFixed(1))}
+                  >
                     <div
                       className="letter-density__progress"
                       style={{ width: `${percentage}%` }}
@@ -84,7 +98,7 @@ const LetterDensity = ({ importantLetters, otherLetters }) => {
             </div>
           </details>
         )}
-      </article>
+      </div>
     </section>
   );
 };

@@ -27,10 +27,6 @@ main.dark input {
 
 /* tablet */
 @media (min-width: 768px) {
-  .title {
-    font-size: 3rem;
-  }
-
   .h2-text {
     font-size: 4.75rem;
   }
@@ -38,10 +34,6 @@ main.dark input {
 
 /* desktop */
 @media (min-width: 1024px) {
-  .title {
-    font-size: 3.50rem;
-  }
-
   .h2-text {
     font-size: 6.75rem;
   }

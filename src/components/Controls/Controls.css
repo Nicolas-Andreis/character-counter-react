@@ -71,6 +71,11 @@
   border-color: var(--primary);
 }
 
+.container-controls input:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
 
 /* tablet */
 @media (min-width: 768px) {
@@ -106,7 +111,7 @@
     flex-wrap: nowrap;
   }
 
-  input[type="checkbox"] {
+  .container-controls input[type="checkbox"] {
     transform: scale(1.5);
 
     cursor: pointer;

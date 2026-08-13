@@ -5,7 +5,7 @@ const ReadingTime = ({readingTime}) => {
     <>
       <p className='container-readingtime'>
         Approx. reading time:{" "}
-        {readingTime < 0.8
+        {readingTime < 1
           ? "< 1 min"
           : `~ ${Math.round(readingTime)} min`}
       </p>

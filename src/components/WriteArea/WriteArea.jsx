@@ -5,7 +5,8 @@ const WriteArea = ({handleChangeTextArea, text, limitCharacter, limitValue}) => 
     <>
       <textarea 
         className='write-area'
-        placeholder="write your text..."
+        aria-label="Text to analyze"
+        placeholder="Write your text..."
         value={text}
         onChange={handleChangeTextArea}
         maxLength={limitCharacter ? limitValue : undefined}

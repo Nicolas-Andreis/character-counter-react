@@ -33,16 +33,21 @@ function App() {
 
   // Actualiza el valor del límite de caracteres
   const handleLimitChange = (e) => {
-    setLimitValue(Number(e.target.value));
+    const value = Number(e.target.value);
+    const validLimit = Number.isFinite(value)
+      ? Math.max(1, Math.trunc(value))
+      : 1;
+
+    setLimitValue(validLimit);
   };
 
 
   const handleExcludeSpaces = () => {
-    setExcludeSpaces(!excludeSpaces);
+    setExcludeSpaces((previousValue) => !previousValue);
   };
 
   const handleLimitCharacter = () => {
-    setLimitCharacter(!limitCharacter);
+    setLimitCharacter((previousValue) => !previousValue);
   };
 
   // Aplica el límite y recorta el texto si supera la cantidad permitida
@@ -146,8 +151,8 @@ function App() {
         words = {words}
         sentences = {sentences}
         />
-        {/* renderizado condicional para que si no hay texto no se renderice  */}
-        {text.length > 0 && (<LetterDensity 
+        {/* Solo muestra la densidad cuando existen letras para analizar */}
+        {totalLetters > 0 && (<LetterDensity
         importantLetters={importantLetters}
         otherLetters={otherLetters}
         />)}
