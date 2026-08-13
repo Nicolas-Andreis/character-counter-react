@@ -1,0 +1,75 @@
+.write-area{
+  width: 90%;
+    min-height: 12rem;
+
+    padding: 1rem;
+
+    background-color: var(--bg-surface);
+    color: var(--text-secondary);
+
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+
+    font-family: var(--font-primary);
+    font-size: 1.25rem;
+
+    resize: none;
+    outline: none;
+
+    box-shadow: var(--shadow);
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition),
+        background-color var(--transition),
+        color var(--transition);
+}
+
+.write-area::placeholder {
+    color: var(--text-secondary);
+    opacity: 1;
+}
+
+.write-area:focus {
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 2px rgba(209, 155, 255, 0.15),
+        var(--shadow);
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    .write-area {
+        min-height: 11rem;
+
+        padding: 1.25rem;
+
+        font-size: 1rem;
+
+        border-radius: var(--radius-lg);
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .write-area {
+        min-height: 9rem;
+
+        padding: 1.25rem 1.5rem;
+
+        font-size: 1rem;
+        line-height: 1.55;
+    }
+}
+
+/* Desktop grande */
+@media (min-width: 1440px) {
+    .write-area {
+        min-height: 10rem;
+
+        padding: 1.5rem;
+
+        font-size: 1.0625rem;
+    }
+}

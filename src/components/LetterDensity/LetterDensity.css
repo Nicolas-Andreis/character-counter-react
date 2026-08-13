@@ -1,0 +1,226 @@
+/* ============================= */
+/* LETTER DENSITY - MOBILE FIRST */
+/* ============================= */
+
+.letter-density {
+  width: 100%;
+  margin: 2rem auto;
+  padding: 0 var(--spacing-lg);
+}
+
+
+/* Título */
+
+.letter-density__title {
+  margin-bottom: 1.25rem;
+
+  color: var(--text-primary);
+
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+
+/* Contenedor de las letras */
+
+.letter-density__list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.75rem;
+}
+
+
+/* Cada fila */
+
+.letter-density__item {
+  display: grid;
+
+  grid-template-columns: 1.25rem 1fr auto;
+
+  align-items: center;
+
+  gap: 0.75rem;
+}
+
+
+/* Letra */
+
+.letter-density__letter {
+  color: var(--text-primary);
+
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+
+/* Fondo de la barra */
+
+.letter-density__bar {
+    width: 100%;
+    height: 0.75rem;
+
+    background-color: var(--bg-surface);
+
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+
+    box-shadow: var(--shadow);
+
+    overflow: hidden;
+}
+
+
+/* Parte violeta de la barra */
+
+.letter-density__progress {
+    height: 100%;
+
+    background-color: var(--primary);
+
+    border-radius: 999px;
+
+    transition: width var(--transition);
+}
+
+
+/* Cantidad y porcentaje */
+
+.letter-density__value {
+  min-width: 5.5rem;
+
+  color: var(--text-secondary);
+
+  font-size: 1rem;
+
+  text-align: right;
+}
+
+
+/* ============================= */
+/* SEE MORE */
+/* ============================= */
+
+.letter-density__details {
+  margin-top: 0.5rem;
+}
+
+
+/* Quitamos la flecha original */
+
+.letter-density__summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    color: var(--text-primary);
+    font-size: 1.1rem;
+
+    cursor: pointer;
+    list-style: none;
+}
+
+
+.letter-density__summary::after {
+    content: "⌄";
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 1rem;
+    height: 1rem;
+
+    font-size: 1rem;
+    line-height: 1;
+
+    transform: translateY(-2px);
+
+    transition: transform var(--transition);
+}
+
+.letter-density__details[open]
+.letter-density__summary::after {
+    transform: translateY(2px) rotate(180deg);
+}
+
+
+/* Letras ocultas */
+
+.letter-density__other {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.75rem;
+
+  margin-top: 0.75rem;
+}
+
+
+/* ============================= */
+/* TABLET */
+/* ============================= */
+
+@media (min-width: 768px) {
+
+  .letter-density__title {
+    font-size: 1.375rem;
+  }
+
+  .letter-density__item {
+    grid-template-columns: 1.5rem 1fr auto;
+
+    gap: 1rem;
+  }
+
+  .letter-density__value {
+    min-width: 6rem;
+
+    font-size: 0.8125rem;
+  }
+
+  .letter-density__summary {
+    font-size: 0.9375rem;
+  }
+
+}
+
+
+/* ============================= */
+/* DESKTOP */
+/* ============================= */
+
+@media (min-width: 1024px) {
+
+  .letter-density {
+    margin-top: 2.5rem;
+  }
+
+  .letter-density__title {
+    margin-bottom: 1.5rem;
+
+    font-size: 1.5rem;
+  }
+
+  .letter-density__item {
+    grid-template-columns: 1.5rem 1fr 7rem;
+
+    gap: 1.25rem;
+  }
+
+  .letter-density__letter {
+    font-size: 0.875rem;
+  }
+
+  .letter-density__value {
+    font-size: 0.875rem;
+  }
+
+  .letter-density__summary {
+    margin-top: 0.5rem;
+
+    font-size: 1rem;
+  }
+
+}

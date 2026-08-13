@@ -1,9 +1,10 @@
+import ReadingTime from "../ReadingTime/ReadingTime"
+import './Controls.css'
 
-
-const Controls = ({excludeSpaces, limitCharacter, limitValue, handleLimitChange, applyLimit, handleLimitKeyDown, handleExcludeSpaces, handleLimitCharacter}) => {
+const Controls = ({excludeSpaces, limitCharacter, limitValue, handleLimitChange, applyLimit, handleLimitKeyDown, handleExcludeSpaces, handleLimitCharacter, readingTime}) => {
   return (
-    <>
-      <div>
+    <div className="container-all-controls">
+      <div className="container-controls">
           <label>
             <input
               type="checkbox"
@@ -33,7 +34,8 @@ const Controls = ({excludeSpaces, limitCharacter, limitValue, handleLimitChange,
             />
           )}
         </div>
-    </>
+        <ReadingTime readingTime = {readingTime}/>
+    </div>
   )
 }
 

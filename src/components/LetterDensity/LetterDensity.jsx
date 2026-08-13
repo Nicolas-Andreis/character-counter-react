@@ -1,50 +1,77 @@
-const LetterDensity = ({importantLetters, otherLetters}) => {
+import "./LetterDensity.css";
+
+const LetterDensity = ({ importantLetters, otherLetters }) => {
   return (
-    <>
-      <section>
-        <h2>Cantidad de letras</h2>
-        <article>
-          {importantLetters.map(({ letter, amount, percentage }) => (
-            <div key={letter}>
-              <span>{letter.toUpperCase()}</span>
+    <section className="letter-density">
 
-              <meter
-                min={0}
-                max={100}
-                value={percentage}
+      <h2 className="letter-density__title">
+        Letter Density
+      </h2>
+
+      <article className="letter-density__list">
+
+        {/* Letras principales */}
+        {importantLetters.map(({ letter, amount, percentage }) => (
+          <div
+            className="letter-density__item"
+            key={letter}
+          >
+            <span className="letter-density__letter">
+              {letter.toUpperCase()}
+            </span>
+
+            <div className="letter-density__bar">
+              <div
+                className="letter-density__progress"
+                style={{ width: `${percentage}%` }}
               />
-
-              <span>
-                {amount} ({percentage.toFixed(1)}%)
-              </span>
             </div>
-          ))}
 
-          {otherLetters.length > 0 && (
-            <details>
-              <summary>See more</summary>
+            <span className="letter-density__value">
+              {amount} ({percentage.toFixed(1)}%)
+            </span>
+          </div>
+        ))}
 
+        {/* Letras con porcentaje menor al 5% */}
+        {otherLetters.length > 0 && (
+          <details className="letter-density__details">
+
+            <summary className="letter-density__summary">
+              See more
+            </summary>
+
+            <div className="letter-density__other">
               {otherLetters.map(({ letter, amount, percentage }) => (
-                <div key={letter}>
-                  <span>{letter.toUpperCase()}</span>
+                <div
+                  className="letter-density__item"
+                  key={letter}
+                >
+                  <span className="letter-density__letter">
+                    {letter.toUpperCase()}
+                  </span>
 
-                  <meter
-                    min={0}
-                    max={100}
-                    value={percentage}
-                  />
+                  <div className="letter-density__bar">
+                    <div
+                      className="letter-density__progress"
+                      style={{ width: `${percentage}%` }}
+                    />
+                  </div>
 
-                  <span>
+                  <span className="letter-density__value">
                     {amount} ({percentage.toFixed(1)}%)
                   </span>
                 </div>
               ))}
-            </details>
-          )}
-        </article>
-      </section>
-    </>
-  )
-}
+            </div>
 
-export { LetterDensity }
+          </details>
+        )}
+
+      </article>
+
+    </section>
+  );
+};
+
+export { LetterDensity };

@@ -3,6 +3,15 @@ main {
   color: #12131a;
   background-color: #ffffff;
   transition: color 0.2s, background-color 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.h2-text{
+  text-align: center;
+  font-size: 2.75rem;
 }
 
 main.dark {
@@ -14,4 +23,18 @@ main.dark textarea,
 main.dark input {
   color: #f2f2f7;
   background-color: #21222c;
+}
+
+/* tablet */
+@media (min-width: 768px) {
+    .title {
+        font-size: 3rem;
+    }
+}
+
+/* desktop */
+@media (min-width: 1024px) {
+    .title {
+        font-size: 3.50rem;
+    }
 }

@@ -7,11 +7,9 @@ import { LetterDensity } from "./components/LetterDensity/LetterDensity";
 import { Stats } from "./components/Stats/Stats";
 import { ThemeContext } from "./context/ThemeContext";
 
-
-
 function App() {
   // Guarda el texto que escribe el usuario
-  const [text, setText] = useState("Hola :)");
+  const [text, setText] = useState("Design is the silent ambassador of your brand. Simplicity is key to effective communication, creating clarity in every interaction. A great design transforms complex ideas into elegant solutions, making them easy to understand. It blends aesthetics and functionality seamlessly.");
 
   const { dark } = useContext(ThemeContext);
 
@@ -120,7 +118,7 @@ function App() {
       <main className={dark ? "dark" : "light"}>
         <Header />
 
-        <h2>
+        <h2 className="h2-text">
           Analyze your text <br />
           in real-time.
         </h2>
@@ -141,12 +139,12 @@ function App() {
           handleLimitKeyDown={handleLimitKeyDown}
           handleExcludeSpaces = {handleExcludeSpaces}
           handleLimitCharacter = {handleLimitCharacter}
+          readingTime = {readingTime}
         />
         <Stats 
         characters = {characters}
         words = {words}
         sentences = {sentences}
-        readingTime = {readingTime}
         />
         {/* renderizado condicional para que si no hay texto no se renderice  */}
         {text.length > 0 && (<LetterDensity 

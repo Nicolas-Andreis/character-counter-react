@@ -1,10 +1,11 @@
-
+import './WriteArea.css'
 
 const WriteArea = ({handleChangeTextArea, text, limitCharacter, limitValue}) => {
   return (
     <>
-      <textarea
-        placeholder="Escribe tu texto..."
+      <textarea 
+        className='write-area'
+        placeholder="write your text..."
         value={text}
         onChange={handleChangeTextArea}
         maxLength={limitCharacter ? limitValue : undefined}

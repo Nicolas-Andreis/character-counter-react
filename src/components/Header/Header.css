@@ -1,8 +1,10 @@
 header{
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 2rem;
+  justify-content: center;
+  padding: 1cqmax;
+  gap: 2rem;
+  font-size: 1rem;
 }
 
 .container-logo{
@@ -11,13 +13,13 @@ header{
 }
 
 .logo {
-  width: 7rem;
-  height: 7rem;
+  width: 6rem;
+  height: 6rem;
 }
 
 .btn-dark {
-  width: 5rem;
-  height: 5rem;
+  width: 4rem;
+  height: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,10 +27,21 @@ header{
   border: none;
   border-radius: .75rem;
   cursor: pointer;
+  background-color: var(--bg-surface);
 }
 
 .btn-dark img {
-  width: 60%;
-  height: 60%;
+  width: 70%;
+  height: 70%;
   object-fit: contain;
+}
+
+/* TABLET */
+@media (min-width: 768px) {
+    
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+    
 }

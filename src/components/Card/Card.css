@@ -1,0 +1,73 @@
+.card {
+  width: 90%;
+  min-height: 8rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.25rem;
+
+  padding: 1rem;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+
+  color: #12131a;
+  text-align: center;
+}
+
+.card_number {
+  display: block;
+
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.card_label {
+  display: block;
+
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+
+/* TABLET */
+@media (min-width: 768px) {
+
+  .card {
+    min-height: 8.5rem;
+    padding: 1.25rem;
+  }
+
+  .card_number {
+    font-size: 2.75rem;
+  }
+
+  .card_label {
+    font-size: 0.9375rem;
+  }
+}
+
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+
+  .card {
+    min-height: 9rem;
+    padding: 1.25rem;
+  }
+
+  .card_number {
+    font-size: 3rem;
+  }
+
+  .card_label {
+    font-size: 1rem;
+  }
+}

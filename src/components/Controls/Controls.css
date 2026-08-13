@@ -1,0 +1,21 @@
+.container-all-controls{
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin: var(--spacing-md);
+}
+
+.container-controls{
+  display: flex;
+  align-items: center;
+  width: 60%;
+}
+
+label{
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  text-align: center;
+  width: 40%;
+}
+

@@ -1,17 +1,17 @@
-const Stats = ({characters, words, sentences, readingTime}) => {
+import './Stats.css'
+import { Card } from '../Card/Card';
+import total from '../../assets/images/cards/violet_card.png'
+import word from '../../assets/images/cards/yellow_card.png'
+import sentence from '../../assets/images/cards/orange_card.png'
+
+const Stats = ({ characters, words, sentences }) => {
   return (
-    <>
-      <p>Cantidad de caracteres: {characters}</p>
-        <p>Cantidad de palabras: {words}</p>
-        <p>Cantidad de oraciones: {sentences}</p>
-        <p>
-          Tiempo de lectura:{" "}
-          {readingTime < 0.8
-            ? "< 1 min"
-            : `~ ${Math.round(readingTime)} min`}
-        </p>
-    </>
+    <div className='container-cards'>
+      <Card name="Total Characters" value={characters} background={total} />
+      <Card name="Word Count" value={words} background={word} />
+      <Card name="Sentence Count" value={sentences} background={sentence} />
+    </div>
   )
 }
 
-export {Stats}
+export { Stats }

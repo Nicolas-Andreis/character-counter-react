@@ -1,0 +1,9 @@
+.container-cards{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin: .5rem;
+}

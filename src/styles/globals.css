@@ -10,4 +10,6 @@ main{
     color: var(--text-primary);
 
     transition: var(--transition);
+
+    font-family: var(--font-primary);
 }
