@@ -2,6 +2,10 @@
 
 ![Presentación de Character Counter y sus funcionalidades](./src/assets/mockups/marketing.png)
 
+## 🚀 Live Demo
+
+[View live project](https://character-counter-andreis.vercel.app)
+
 ## Objetivo del proyecto
 
 Desarrollar una aplicación funcional de conteo y análisis de texto con **React**. La interfaz procesa en tiempo real el contenido ingresado por el usuario y muestra estadísticas de caracteres, palabras, oraciones, tiempo estimado de lectura y densidad de letras.
