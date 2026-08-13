@@ -1,20 +1,31 @@
-import ReadingTime from "../ReadingTime/ReadingTime"
-import './Controls.css'
+import ReadingTime from "../ReadingTime/ReadingTime";
+import "./Controls.css";
 
-const Controls = ({excludeSpaces, limitCharacter, limitValue, handleLimitChange, applyLimit, handleLimitKeyDown, handleExcludeSpaces, handleLimitCharacter, readingTime}) => {
+const Controls = ({
+  excludeSpaces,
+  limitCharacter,
+  limitValue,
+  handleLimitChange,
+  applyLimit,
+  handleLimitKeyDown,
+  handleExcludeSpaces,
+  handleLimitCharacter,
+  readingTime,
+}) => {
   return (
     <div className="container-all-controls">
       <div className="container-controls">
-          <label>
-            <input
-              type="checkbox"
-              checked={excludeSpaces}
-              onChange={() => handleExcludeSpaces}
-            />
-            Exclude spaces
-          </label>
+        <label className="control-label">
+          <input
+            type="checkbox"
+            checked={excludeSpaces}
+            onChange={handleExcludeSpaces}
+          />
+          Exclude spaces
+        </label>
 
-          <label>
+        <div className="limit-control">
+          <label className="control-label">
             <input
               type="checkbox"
               checked={limitCharacter}
@@ -25,6 +36,7 @@ const Controls = ({excludeSpaces, limitCharacter, limitValue, handleLimitChange,
 
           {limitCharacter && (
             <input
+              className="limit-input"
               type="number"
               min={1}
               value={limitValue}
@@ -34,9 +46,11 @@ const Controls = ({excludeSpaces, limitCharacter, limitValue, handleLimitChange,
             />
           )}
         </div>
-        <ReadingTime readingTime = {readingTime}/>
-    </div>
-  )
-}
+      </div>
 
-export {Controls}
+      <ReadingTime readingTime={readingTime} />
+    </div>
+  );
+};
+
+export { Controls };

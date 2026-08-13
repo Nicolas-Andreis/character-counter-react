@@ -20,30 +20,57 @@ header {
 .btn-dark {
   width: 4rem;
   height: 4rem;
+
   display: flex;
   justify-content: center;
   align-items: center;
 
-  border: none;
+  border: 1px solid var(--border-color);
   border-radius: .75rem;
+
   cursor: pointer;
+
   background-color: var(--bg-surface);
+
+  box-shadow: var(--shadow);
+
+  transition:
+    box-shadow var(--transition),
+    transform var(--transition),
+    border-color var(--transition);
+}
+
+.btn-dark:hover {
+  transform: translateY(-2px);
+
+  border-color: var(--primary);
+
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, .18);
+}
+
+.btn-dark:active {
+  transform: translateY(0);
 }
 
 .btn-dark img {
   width: 70%;
   height: 70%;
+
   object-fit: contain;
 }
 
+
 /* TABLET */
 @media (min-width: 768px) {
+
   header {
     width: 90%;
+
     font-size: 2rem;
+
     justify-content: space-between;
   }
-
 
   .logo {
     width: 10rem;
@@ -56,5 +83,8 @@ header {
   }
 }
 
+
 /* DESKTOP */
-@media (min-width: 1024px) {}
+@media (min-width: 1024px) {
+
+}

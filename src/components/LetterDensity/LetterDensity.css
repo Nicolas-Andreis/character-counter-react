@@ -112,15 +112,24 @@
 .letter-density__summary {
   display: inline-flex;
   align-items: center;
+
   gap: 0.4rem;
 
   color: var(--text-primary);
+
   font-size: 1.1rem;
 
   cursor: pointer;
+
   list-style: none;
 }
 
+.letter-density__summary::-webkit-details-marker {
+  display: none;
+}
+
+
+/* Flecha */
 
 .letter-density__summary::after {
   content: "⌄";
@@ -140,7 +149,11 @@
   transition: transform var(--transition);
 }
 
-.letter-density__details[open] .letter-density__summary::after {
+
+/* Gira la flecha cuando abre */
+
+.letter-density__details[open]
+.letter-density__summary::after {
   transform: translateY(2px) rotate(180deg);
 }
 
@@ -154,6 +167,33 @@
   gap: 0.75rem;
 
   margin-top: 0.75rem;
+
+  opacity: 0;
+
+  transform: translateY(-0.5rem);
+
+  animation: showLetters 0.4s ease forwards;
+
+  scroll-margin-top: 2rem;
+}
+
+
+/* Animación al aparecer */
+
+@keyframes showLetters {
+
+  from {
+    opacity: 0;
+
+    transform: translateY(-0.5rem);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+
 }
 
 
@@ -162,14 +202,17 @@
 /* ============================= */
 
 @media (min-width: 768px) {
+
   .letter-density {
     width: 90%;
+
     margin: 0;
   }
 
   .letter-density__title {
-    font-size: 2.5rem;
     margin-top: 1.7rem;
+
+    font-size: 2.5rem;
   }
 
   .letter-density__letter {
@@ -178,17 +221,15 @@
 
   .letter-density__item {
     grid-template-columns: 0.2fr 5fr 1fr;
+
     gap: 1rem;
+
     text-align: center;
   }
 
   .letter-density__value {
     min-width: 6rem;
 
-    font-size: 1.7rem;
-  }
-
-  .letter-density__summary {
     font-size: 1.7rem;
   }
 
@@ -203,11 +244,13 @@
 
   .letter-density__summary {
     gap: 0.9rem;
+
     font-size: 1.7rem;
   }
 
   .letter-density__summary::after {
-    align-items: end;
+    align-items: flex-end;
+
     font-size: 3rem;
   }
 
@@ -227,27 +270,25 @@
   .letter-density__title {
     margin-bottom: 1.5rem;
 
-    font-size: 1.5rem;
+    font-size: 3rem;
   }
 
   .letter-density__item {
-    grid-template-columns: 1.5rem 1fr 7rem;
-
-    gap: 1.25rem;
+    grid-template-columns: 1rem 9fr 1fr;
   }
 
   .letter-density__letter {
-    font-size: 0.875rem;
+    font-size: 1.7rem;
   }
 
   .letter-density__value {
-    font-size: 0.875rem;
+    font-size: 1.7rem;
+
+    text-align: center;
   }
 
   .letter-density__summary {
-    margin-top: 0.5rem;
-
-    font-size: 1rem;
+    font-size: 1.7rem;
   }
 
 }

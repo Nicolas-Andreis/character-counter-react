@@ -1,9 +1,22 @@
+import { useRef } from "react";
 import "./LetterDensity.css";
 
 const LetterDensity = ({ importantLetters, otherLetters }) => {
+  const otherLettersRef = useRef(null);
+
+  const handleToggle = (e) => {
+    if (e.currentTarget.open) {
+      setTimeout(() => {
+        otherLettersRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 150);
+    }
+  };
+
   return (
     <section className="letter-density">
-
       <h2 className="letter-density__title">
         Letter Density
       </h2>
@@ -35,13 +48,18 @@ const LetterDensity = ({ importantLetters, otherLetters }) => {
 
         {/* Letras con porcentaje menor al 5% */}
         {otherLetters.length > 0 && (
-          <details className="letter-density__details">
-
+          <details
+            className="letter-density__details"
+            onToggle={handleToggle}
+          >
             <summary className="letter-density__summary">
               See more
             </summary>
 
-            <div className="letter-density__other">
+            <div
+              ref={otherLettersRef}
+              className="letter-density__other"
+            >
               {otherLetters.map(({ letter, amount, percentage }) => (
                 <div
                   className="letter-density__item"
@@ -64,12 +82,9 @@ const LetterDensity = ({ importantLetters, otherLetters }) => {
                 </div>
               ))}
             </div>
-
           </details>
         )}
-
       </article>
-
     </section>
   );
 };
